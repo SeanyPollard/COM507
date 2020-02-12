@@ -3,13 +3,13 @@ class Location:
         self.x = x
         self.y = y
 
-    def get_x(self):
+    def get_x(self) -> int:
         return self.x
     
     def set_x(self, x:int):
         self.x = x
 
-    def get_y(self):
+    def get_y(self) -> int:
         return self.y
 
     def set_y(self, y:int):
