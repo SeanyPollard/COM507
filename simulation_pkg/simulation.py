@@ -1,8 +1,9 @@
 from .config import Config
+from abc import ABC
 from abc import abstractmethod
 from time import sleep
 
-class Simulation:
+class Simulation(ABC):
     def __init__(self):
         self._is_running = False
         self._speed = Config.initial_sim_speed
@@ -25,6 +26,7 @@ class Simulation:
         print("This worked")
 
     def run(self):
+        print(self._is_running)
         self._is_running = True
         self._prepare()
 

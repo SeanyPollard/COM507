@@ -1,5 +1,5 @@
 from .fish import Fish
-from ...simulation.model.location import Location
+from ...simulation_pkg.model.location import Location
 
 class Shark(Fish):
     def __init__(self, location:Location):
