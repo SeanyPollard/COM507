@@ -1,5 +1,5 @@
-from com507.simulation.model.agent import Agent
-from com507.simulation.model.location import Location
+from ...simulation.model.agent import Agent
+from ...simulation.model.location import Location
 from abc import abstractmethod
 
 class Fish(Agent):

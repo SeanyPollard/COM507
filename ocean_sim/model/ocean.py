@@ -1,6 +1,6 @@
-from com507.simulation.model.environment import Environment
-from com507.simulation.model.location import Location
-from com507.simulation.model.agent import Agent
+from ...simulation.model.environment import Environment
+from ...simulation.model.location import Location
+from ...simulation.model.agent import Agent
 
 class Ocean(Environment):    
     def __init__(self, width:int, height:int):
