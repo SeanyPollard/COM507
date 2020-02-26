@@ -1,6 +1,5 @@
 from .config import Config
-from abc import ABC
-from abc import abstractmethod
+from abc import ABC, abstractmethod
 from time import sleep
 
 class Simulation(ABC):
@@ -23,10 +22,9 @@ class Simulation(ABC):
 
     @abstractmethod
     def _update(self):
-        print("This worked")
+        pass
 
     def run(self):
-        print(self._is_running)
         self._is_running = True
         self._prepare()
 
@@ -36,7 +34,7 @@ class Simulation(ABC):
             sleep(self.__sleep_calc())
             self._is_running = False
 
-    def __sleep_calc(self):
+    def __sleep_calc(self) -> int:
         return Config.max_sim_speed - self._speed
 
     

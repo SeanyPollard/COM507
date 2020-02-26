@@ -20,3 +20,20 @@ class Ocean(Environment):
 
     def get_height(self, location:Location) -> int:
         return self.agent_grid[location.get_y()]
+
+    def find_free_locations(self, location:Location) -> Location:
+# send location to this
+# iterate through locations immediately around
+# if get y -1 < 0 then ignore
+# if get x -1 < 0 then ignore
+# if 0,0 then ignore
+# if get y +1 > config.world_height then ignore
+# if get x +1 > config.world_width then ignore
+# if location contains agent then ignore
+# else add to list
+# return list
+
+        self.free_locations = [if ]
+        for i in free_locations[]
+        return self.free_locations
+        
