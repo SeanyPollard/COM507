@@ -6,9 +6,12 @@ class Shark(Fish):
     def __init__(self, location:Location):
         super().__init__(location)
 
+    def act(self):
+        pass
+    
     def swim(self, location:Location):
         super().set_location(location)
 
-    def eat(self, agent:Agent):
-        pass
+    #def eat(self, agent:Agent):
+    #    pass
 

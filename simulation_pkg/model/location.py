@@ -1,18 +1,18 @@
 class Location:
     def __init__(self, x:int, y:int):
-        self.x = x
-        self.y = y
+        self.__x = x
+        self.__y = y
 
     def get_x(self) -> int:
-        return self.x
+        return self.__x
     
-    def set_x(self, x:int):
-        self.x = x
+    def set_x(self, x:int) -> None:
+        self.__x = x
 
     def get_y(self) -> int:
-        return self.y
+        return self.__y
 
-    def set_y(self, y:int):
-        self.y = y
+    def set_y(self, y:int) -> None:
+        self.__y = y
 
         

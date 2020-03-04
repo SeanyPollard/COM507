@@ -5,26 +5,22 @@ from time import sleep
 class Simulation(ABC):
     def __init__(self):
         self._is_running = False
-        self._speed = Config.initial_sim_speed
+        self._speed = Config.INITIAL_SIM_SPEED
         self._step = 0
 
     @abstractmethod
-    def _prepare(self):
+    def _prepare(self) -> None:
         pass
 
     @abstractmethod
-    def _render(self):
+    def _render(self) -> None:
         pass
 
     @abstractmethod
-    def _reset(self):
+    def _reset(self) -> None:
         pass
 
-    @abstractmethod
-    def _update(self):
-        pass
-
-    def run(self):
+    def run(self) -> None:
         self._is_running = True
         self._prepare()
 
@@ -32,9 +28,12 @@ class Simulation(ABC):
             self._update()
             self._render()
             sleep(self.__sleep_calc())
-            self._is_running = False
 
     def __sleep_calc(self) -> int:
-        return Config.max_sim_speed - self._speed
+        return Config.MAX_SIM_SPEED - self._speed
+
+    @abstractmethod
+    def _update(self) -> None:
+        pass
 
     

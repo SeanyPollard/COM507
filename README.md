@@ -67,7 +67,7 @@ self._stuff     protected, not accessed directly but accessible by children clas
 self.__stuff    private, not accessed outside the class even through inheritance
 
 Using GUIs
-from tkinter import *       AKA bring in all the GUId stuff
+from tkinter import *       AKA bring in all the GUI stuff
 
 Then bring in the class for a blank window
 class Gui(Tk):

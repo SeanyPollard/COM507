@@ -1,6 +1,7 @@
 from ...simulation_pkg.model.environment import Environment
 from ...simulation_pkg.model.location import Location
 from ...simulation_pkg.model.agent import Agent
+from ...simulation_pkg.config import Config
 
 class Ocean(Environment):    
     def __init__(self, width:int, height:int):
@@ -21,19 +22,26 @@ class Ocean(Environment):
     def get_height(self, location:Location) -> int:
         return self.agent_grid[location.get_y()]
 
-    def find_free_locations(self, location:Location) -> Location:
-# send location to this
-# iterate through locations immediately around
-# if get y -1 < 0 then ignore
-# if get x -1 < 0 then ignore
-# if 0,0 then ignore
-# if get y +1 > config.world_height then ignore
-# if get x +1 > config.world_width then ignore
-# if location contains agent then ignore
-# else add to list
-# return list
+    def world(self, agent:Agent):
+        pass
 
-        self.free_locations = [if ]
-        for i in free_locations[]
+    def find_free_locations(self, location:Location) -> Location:
+        self.free_count = 0
+        self.free_locations = [None]
+        for x in range(-1,1):
+            if location.get_x() + x < 0:
+                continue
+            elif location.get_x() + x > Config.WORLD_WIDTH:
+                continue
+            else:
+                for y in range(-1,1):
+                    if location.get_y() + y < 0:
+                        continue
+                    elif location.get_y() + y > Config.WORLD_HEIGHT:
+                        continue
+                    else:
+                        if self.agent_grid[y][x] == None:
+                            self.free_locations.insert(self.free_count,location[y][x])
+                            self.free_count += 1
         return self.free_locations
         
