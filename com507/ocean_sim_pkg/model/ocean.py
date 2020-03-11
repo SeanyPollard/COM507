@@ -26,22 +26,20 @@ class Ocean(Environment):
         pass
 
     def find_free_locations(self, location:Location) -> Location:
-        self.free_count = 0
-        self.free_locations = [None]
-        for x in range(-1,1):
+        self.free_locations = []
+        for x in range(-1,2):
             if location.get_x() + x < 0:
                 continue
-            elif location.get_x() + x > Config.WORLD_WIDTH:
+            elif location.get_x() + x >= Config.WORLD_WIDTH:
                 continue
             else:
-                for y in range(-1,1):
+                for y in range(-1,2):
                     if location.get_y() + y < 0:
                         continue
-                    elif location.get_y() + y > Config.WORLD_HEIGHT:
+                    elif location.get_y() + y >= Config.WORLD_HEIGHT:
                         continue
                     else:
-                        if self.agent_grid[y][x] == None:
-                            self.free_locations.insert(self.free_count,location[y][x])
-                            self.free_count += 1
+                        if self.agent_grid[(location.get_y() + y)][(location.get_x() + x)] == None:
+                            self.free_locations.append(Location((location.get_x() + x),(location.get_y() + y)))
         return self.free_locations
         

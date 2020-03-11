@@ -46,10 +46,12 @@ class Gui(Tk):
             for col in range(0,Config.WORLD_WIDTH):
                 self.__grid_labels[row][col] = Label(self.__grid_frame)
                 self.__grid_labels[row][col].grid(row=row, column=col)
-                self.__grid_labels[row][col].configure(width=4, height=4, borderwidth=1, relief="groove")
+                self.__grid_labels[row][col].configure(width=2, height=1, borderwidth=1, relief="groove")
                 location = Location(col, row)
                 if self.__environment.get_agent(location) != None:
-                    self.__grid_labels[row][col].configure(background="red")
+                    self.__grid_labels[row][col].configure(background="red", text="S")
+                else:
+                    self.__grid_labels[row][col].configure(background="blue", text="")
         
 
     def __add_footer_frame(self):
@@ -75,4 +77,14 @@ class Gui(Tk):
         self.__reset_button = Button(self.__footer_frame)
         self.__reset_button.pack(side=LEFT)
         self.__reset_button.configure(text="Reset")   
+
+    def refresh(self, envrionment:Environment):
+        for row in range(0,Config.WORLD_HEIGHT):
+            for col in range(0,Config.WORLD_WIDTH):
+                location = Location(col, row)
+                if self.__environment.get_agent(location) != None:
+                    self.__grid_labels[row][col].configure(background="red", text="S")
+                else:
+                    self.__grid_labels[row][col].configure(background="blue", text="")
+
 
